@@ -1,0 +1,2 @@
+class Psound < ApplicationRecord
+end

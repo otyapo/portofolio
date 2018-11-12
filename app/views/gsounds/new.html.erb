@@ -1,0 +1,9 @@
+<div class="text-center">
+<%= form_for(@gsound) do |f| %>
+<span><%= f.select :g_bpm, [["100", "100"],["120", "120"],["140","140"],["160","160"]] %></span>
+<span><%= f.select :g_key, [["A", "A"],["B", "B"],["C","C"],["D","D"],["E","E"],["F","F"],["F","F"]] %></span>
+<span><%= f.select :g_part, [["rythm", "rythm"],["lead", "lead"]] %></span>
+<p><%= f.text_area :g_body %></p>
+<div class="text-right"><button type=submit class="btn btn-danger">contribution</button></div>
+<% end %>
+</div>

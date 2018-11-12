@@ -1,0 +1,2 @@
+class Asound < ApplicationRecord
+end

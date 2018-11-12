@@ -1,0 +1,35 @@
+<div class="text-center category">
+	<span class="bpm">
+		<span>BPM</span>
+	    <select>
+		    <option>100</option>
+		    <option>120</option>
+		    <option>140</option>
+		    <option>160</option>
+	    </select>
+	</span>
+	<span class="key">
+		<span>KEY</span>
+	    <select>
+	        <option>A</option>
+	        <option>B</option>
+	        <option>C</option>
+	        <option>D</option>
+	        <option>E</option>
+	        <option>F</option>
+	        <option>G</option>
+        </select>
+    </span>
+    <span class="part">
+    	<span>PART</span>
+        <select>
+    	    <option>rythm</option>
+    	    <option>lead</option>
+        </select>
+    </span>
+</div>
+<% if @gsounds.present? %>
+<% @gsounds.each do |g|%>
+	<%= g.g_body %>
+	<% end %>
+	<% end %>

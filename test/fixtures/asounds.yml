@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  a_sound: MyString
+  a_body: MyText
+  a_bpm: MyString
+  a_key_string: MyString
+  a_part_string: MyString
+  a_likes_count: MyString
+
+two:
+  a_sound: MyString
+  a_body: MyText
+  a_bpm: MyString
+  a_key_string: MyString
+  a_part_string: MyString
+  a_likes_count: MyString

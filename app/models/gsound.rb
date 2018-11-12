@@ -1,0 +1,2 @@
+class Gsound < ApplicationRecord
+end

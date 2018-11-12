@@ -1,0 +1,2 @@
+module BsoundsHelper
+end

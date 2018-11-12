@@ -1,0 +1,6 @@
+<div class="text-center">
+	 <%= attachment_image_tag @user, :user_image, size: '100x100', fallback: "no_image.jpg",class: "img-circle" %>
+	<p><%= @user.user_name %></p>
+	<p><%= @user.profile %></p>
+	<%= link_to "edit", edit_user_path(@user.id) %>
+</div>

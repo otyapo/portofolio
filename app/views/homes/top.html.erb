@@ -1,0 +1,21 @@
+<div class="text-center">
+	<h2>search for</h2>
+    <p><%= link_to "ギター一覧", gsounds_path %></p>
+    <p><%= link_to "ベース一覧", bsounds_path %></p>
+    <p><%= link_to "ピアノ一覧", psounds_path %></p>
+    <p><%= link_to "その他一覧", asounds_path %></p>
+</div>
+
+<div class="text-center">
+	<h2>contribute your sounds!</h2>
+    <span><%= link_to "ギター投稿", new_gsound_path %></span>
+    <span><%= link_to "ベース投稿", new_bsound_path %></span>
+    <span><%= link_to "ピアノ投稿", new_psound_path %></span>
+    <span><%= link_to "その他投稿", new_asound_path %></span>
+</div>
+
+<% if current_user.try(:admin?) %>
+<div class="text-center">
+    <span><%= link_to "ユーザー一覧", users_path %><span>
+</div>
+<% end %>

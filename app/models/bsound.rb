@@ -1,0 +1,2 @@
+class Bsound < ApplicationRecord
+end
