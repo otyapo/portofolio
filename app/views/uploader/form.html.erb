@@ -1,0 +1,10 @@
+ <div class="text-center">
+ <% @upload = AudioFile.new %>
+    <%= form_for @upload, :url => {:action => :upload} do |f| %>
+      <%= f.label :gname, "gname" %>
+      <%= f.text_field :gname %>
+      <%= f.label :gfile %>
+      <%= f.file_field :gfile, class: "g"%>
+      <%= f.submit "Upload" %>
+    <% end %>
+</div>

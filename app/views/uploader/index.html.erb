@@ -1,0 +1,9 @@
+ <div class="text-center">
+ <%= link_to 'アップロードはこちら', action: "form" %>
+    <ul>
+      <% AudioFile.all.reverse_order.each do |audio| %>
+        <li><%= audio.gname %>
+        	<%= audio.gfile %>
+      <% end %>
+    </ul>
+</div>
