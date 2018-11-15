@@ -5,8 +5,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'carrierwave'
+gem 'carrierwave-audio'
+gem 'ruby-sox'
+gem 'kaminari'
 
 ruby '2.5.1'
 

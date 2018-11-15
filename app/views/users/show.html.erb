@@ -3,4 +3,6 @@
 	<p><%= @user.user_name %></p>
 	<p><%= @user.profile %></p>
 	<%= link_to "edit", edit_user_path(@user.id) %>
+	　<%= render 'follow_form' %>
+　　　<%= render 'stats' %>
 </div>

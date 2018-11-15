@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_105333) do
+ActiveRecord::Schema.define(version: 2018_11_14_100156) do
 
   create_table "asounds", force: :cascade do |t|
     t.string "a_sound"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2018_11_11_105333) do
     t.string "a_key"
     t.string "a_part"
     t.string "a_likes_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "audio_files", force: :cascade do |t|
+    t.string "gname"
+    t.string "gfile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_105333) do
     t.string "g_likes_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "likes", force: :cascade do |t|

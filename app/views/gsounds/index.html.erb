@@ -1,3 +1,4 @@
+<body class="body1">
 <div class="text-center category">
 	<span class="bpm">
 		<span>BPM</span>
@@ -27,9 +28,51 @@
     	    <option>lead</option>
         </select>
     </span>
-</div>
+
 <% if @gsounds.present? %>
-<% @gsounds.each do |g|%>
-	<%= g.g_body %>
-	<% end %>
-	<% end %>
+    <div>
+            <% @gsounds.each do |g| %>
+        <table class="a">
+                <tr>
+                	<td><%= attachment_image_tag g.user, :user_image, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg",class: "img-circle" %></td>
+                	<td><%= link_to g.user.user_name, user_path(g.user) %>
+                	<td><%= g.g_body %></td>
+    	            <td><%= g.g_bpm %></td>
+                    <td><%= g.g_key %></td>
+                    <td><%= g.g_part%></td>
+                </tr>
+                <tr>
+                    <td><%= audio_tag(g.g_sound, :autoplay => false, :controls => true) %></td>
+                    <td><%= link_to "edit", edit_gsound_path(g) %>
+	                <td><%= link_to "削除", gsound_path(g), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+
+
+
+
+
+
+  
+
+	            </tr>
+	    </table>
+	        <% end %>
+<% end %>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
