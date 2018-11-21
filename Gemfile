@@ -13,6 +13,7 @@ gem 'carrierwave-audio'
 gem 'ruby-sox'
 gem 'kaminari'
 gem 'font-awesome-rails'
+gem 'ransack'
 
 ruby '2.5.1'
 

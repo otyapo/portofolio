@@ -5,7 +5,9 @@ class GsoundsController < ApplicationController
   end
 
   def index
-    @gsounds = Gsound.all
+    #@gsounds = Gsound.all
+    @q        = Gsound.search(params[:q])
+    @gsounds = @q.result(distinct: true)
   end
 
   def new
