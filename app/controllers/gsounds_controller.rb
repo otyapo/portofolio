@@ -1,5 +1,7 @@
 class GsoundsController < ApplicationController
+
   def show
+    @gsound = Gsound.find(params[:id])
   end
 
   def index
@@ -40,4 +42,5 @@ class GsoundsController < ApplicationController
     def gsound_params
         params.require(:gsound).permit(:g_sound, :g_body, :g_bpm, :g_key, :g_part, :g_likes_count)
     end
+
 end

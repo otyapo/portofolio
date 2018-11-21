@@ -12,10 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 
 .clearfix::after {
@@ -36,8 +38,11 @@ header{
     left: 0;
     font-size: 30px;
 	text-align: center;
-	font-family: fantasy;
+	font-family: cursive;
 
+}
+.body1{
+	padding-left: 20%;
 }
 
 
@@ -72,6 +77,8 @@ header{
 }
 body{
 	background-image: url();
+	font-family: fantasy;
+
 }
 .logout{
 	color: white;

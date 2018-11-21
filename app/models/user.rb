@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   attachment :user_image
 
-  has_many :gsounds
-
-
+  has_many :gsounds, through: :favorites
+  has_many :favorites
+  has_many :likes
 
 
 

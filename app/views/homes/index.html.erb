@@ -1,0 +1,132 @@
+<div class="body1">
+<!-- 実験 -->
+
+
+
+<form>
+    <div class="search-box">
+        <input type="hidden" name="kind" value="">
+        <input type="hidden" name="kind" value="野菜">
+        <input type="hidden" name="kind" value="果物">
+    </div>
+
+
+    <div class="search-box">
+      <span class="search-box_label">種類:</span>
+      <select>
+        <option name="kind" value="">all</option>
+        <option name="kind" value="野菜">野菜</option>
+        <option name="kind" value="果物">果物</option>
+      </select>
+    </div>
+
+
+    <div class="search-box">
+        <input type="hidden" name="color" value="赤色">
+        <input type="hidden" name="color" value="緑色">
+        <input type="hidden" name="color" value="黄色">
+    </div>
+
+    <div class="search-box">
+      <span class="search-box_label">色:</span>
+      <select>
+        <option name="color" value="赤色">赤色</option>
+        <option name="color" value="緑色">緑色</option>
+        <option name="color" value="黄色">黄色</option>
+      </select>
+    </div>
+
+
+
+</form>
+
+<ul class="list">
+    <li class="list_item" data-kind="野菜" data-color="赤色">いちご 種類: 野菜 色: 赤色</li>
+    <li class="list_item" data-kind="野菜" data-color="黄色">かぼちゃ 種類: 野菜 色: 黄色</li>
+    <li class="list_item" data-kind="野菜" data-color="緑色">キャベツ 種類: 野菜 色: 緑色</li>
+    <li class="list_item" data-kind="果物" data-color="赤色">さくらんぼ 種類: 果物 色: 赤色</li>
+    <li class="list_item" data-kind="野菜" data-color="緑色">すいか 種類: 野菜 色: 緑色</li>
+    <li class="list_item" data-kind="果物" data-color="緑色">キウイ 種類: 果物 色: 緑色</li>
+    <li class="list_item" data-kind="果物" data-color="黄色">バナナ 種類: 果物 色: 黄色</li>
+    <li class="list_item" data-kind="野菜" data-color="緑色">メロン 種類: 野菜 色: 緑色</li>
+    <li class="list_item" data-kind="果物" data-color="赤色">りんご 種類: 果物 色: 赤色</li>
+    <li class="list_item" data-kind="果物" data-color="黄色">レモン 種類: 果物 色:黄色 </li>
+</ul>
+
+</div>
+
+
+
+
+</div>
+
+
+<script>
+
+var searchBox = '.search-box'; // 絞り込む項目を選択するエリア
+var listItem = '.list_item';   // 絞り込み対象のアイテム
+var hideClass = 'is-hide';     // 絞り込み対象外の場合に付与されるclass名
+
+$(function() {
+    // 絞り込み項目を変更した時
+    $(document).on('change', searchBox + ' select', function() {
+        search_filter();
+    });
+});
+
+/**
+ * リストの絞り込みを行う
+ */
+function search_filter() {
+    // 非表示状態を解除
+    $(listItem).removeClass(hideClass);
+    for (var i = 0; i < $(searchBox).length; i++) {
+        var name = $(searchBox).eq(i).find('input').attr('name');
+        // 選択されている項目を取得
+        var searchData = get_selected_input_items(name);
+        // 選択されている項目がない、またはALLを選択している場合は飛ばす
+        if(searchData.length === 0 || searchData[0] === '') {
+            continue;
+        }
+        // リスト内の各アイテムをチェック
+        for (var j = 0; j < $(listItem).length; j++) {
+            // アイテムに設定している項目を取得
+            var itemData = $(listItem).eq(j).data(name);
+            // 絞り込み対象かどうかを調べる
+            if(searchData.indexOf(itemData) === -1) {
+                $(listItem).eq(j).addClass(hideClass);
+            }
+        }
+    }
+}
+
+/**
+ * inputで選択されている値の一覧を取得する
+ * @param  {String} name 対象にするinputのname属性の値
+ * @return {Array}       選択されているinputのvalue属性の値
+ */
+function get_selected_input_items(name) {
+    var searchData = [];
+    $('[name=' + name + ']:checked').each(function() {
+        searchData.push($(this).val());
+    });
+    return searchData;
+}
+
+</script>
+
+
+
+<!-- 実験ここまで -->
+
+
+
+
+
+
+
+
+
+
+
+
