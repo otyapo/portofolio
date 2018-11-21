@@ -6,6 +6,7 @@
 	font-size: 20px;
 	margin-top: 20px;
 }
+
 .bpm{
 	margin: 0 13px;
 }
@@ -15,10 +16,79 @@
 .part{
 	margin: 0 13px;
 }
-
-.body1{
-	padding-left: 20%;
+.audio{
+	font-size: 100px;
 }
-.a{
-    margin: 30px;
+.index{
+	margin: 50px;
+}
+.one{
+	margin: 50px;
+}
+.like-favorite{
+	margin: 30px;
+	font-size: 19px;
+	color: white;
+}
+.like-favorite-item{
+	color:white;
+}
+
+
+.body-guitar{
+	padding-left: 20%;
+	background-color: #222222;
+	background-size: cover;
+	background-position:  top;
+}
+.search-box{
+	display: inline;
+	margin: 30px;
+	font-size: 20px;
+
+}
+form{
+	padding-top: 33px;
+}
+.box1{
+	display: inline-block;
+	margin: 20px;
+	text-align: center;
+}
+
+.gbody{
+font-size: 30px;
+margin: 19px;
+color: white;
+}
+
+.editdelete{
+	font-size: 17px;
+}
+.h{
+	color: white;
+}
+.cate-item{
+	margin: 0 30px;
+	font-size: 20px;
+	color: white;
+}
+.search-box_label{
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+.search-box_label {
+    font-weight: bold;
+}
+.is-hide {
+    display: none;
 }

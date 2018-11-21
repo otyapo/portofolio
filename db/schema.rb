@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_100156) do
+ActiveRecord::Schema.define(version: 2018_11_19_064518) do
 
   create_table "asounds", force: :cascade do |t|
     t.string "a_sound"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_100156) do
     t.string "a_bpm"
     t.string "a_key"
     t.string "a_part"
-    t.string "a_likes_count"
+    t.integer "a_likes_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,17 +36,17 @@ ActiveRecord::Schema.define(version: 2018_11_14_100156) do
     t.string "b_bpm"
     t.string "b_key"
     t.string "b_part"
-    t.string "b_likes_count"
+    t.integer "b_likes_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "g_sound_id"
-    t.integer "b_sound_id"
-    t.integer "p_sound_id"
-    t.integer "a_sound_id"
+    t.integer "gsound_id"
+    t.integer "bsound_id"
+    t.integer "psound_id"
+    t.integer "asound_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_100156) do
     t.string "g_bpm"
     t.string "g_key"
     t.string "g_part"
-    t.string "g_likes_count"
+    t.integer "g_likes_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -65,12 +65,12 @@ ActiveRecord::Schema.define(version: 2018_11_14_100156) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "g_sound_id"
     t.integer "b_sound_id"
     t.integer "p_sound_id"
     t.integer "a_sound_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "gsound_id"
   end
 
   create_table "psounds", force: :cascade do |t|
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_100156) do
     t.string "p_bpm"
     t.string "p_key"
     t.string "p_part"
-    t.string "p_likes_count"
+    t.integer "p_likes_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

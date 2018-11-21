@@ -1,67 +1,210 @@
-<body class="body1">
-<div class="text-center category">
-	<span class="bpm">
-		<span>BPM</span>
-	    <select>
-		    <option>100</option>
-		    <option>120</option>
-		    <option>140</option>
-		    <option>160</option>
-	    </select>
-	</span>
-	<span class="key">
-		<span>KEY</span>
-	    <select>
-	        <option>A</option>
-	        <option>B</option>
-	        <option>C</option>
-	        <option>D</option>
-	        <option>E</option>
-	        <option>F</option>
-	        <option>G</option>
-        </select>
-    </span>
-    <span class="part">
-    	<span>PART</span>
-        <select>
-    	    <option>rythm</option>
-    	    <option>lead</option>
-        </select>
-    </span>
+<body class="body-guitar">
+
+
+<form class="text-center">
+
+    <div class="search-box">
+        <input type="hidden" name="bpm" value="">
+        <input type="hidden" name="bpm" value="100">
+        <input type="hidden" name="bpm" value="120">
+        <input type="hidden" name="bpm" value="140">
+        <input type="hidden" name="bpm" value="160">
+    </div>
+
+
+    <div class="search-box">
+      <span class="search-box_label">bpm:</span>
+      <select>
+        <option name="bpm" value="">all</option>
+        <option name="bpm" value="100">100</option>
+        <option name="bpm" value="120">120</option>
+        <option name="bpm" value="140">140</option>
+        <option name="bpm" value="160">160</option>
+      </select>
+    </div>
+
+
+    <div class="search-box">
+        <input type="hidden" name="key" value="">
+        <input type="hidden" name="key" value="A">
+        <input type="hidden" name="key" value="B">
+        <input type="hidden" name="key" value="C">
+        <input type="hidden" name="key" value="D">
+        <input type="hidden" name="key" value="E">
+        <input type="hidden" name="key" value="F">
+        <input type="hidden" name="key" value="G">
+    </div>
+
+
+    <div class="search-box">
+      <span class="search-box_label">key:</span>
+      <select>
+        <option name="key" value="">all</option>
+        <option name="key" value="A">A</option>
+        <option name="key" value="B">B</option>
+        <option name="key" value="C">C</option>
+        <option name="key" value="D">D</option>
+        <option name="key" value="D">E</option>
+        <option name="key" value="D">F</option>
+        <option name="key" value="D">G</option>
+      </select>
+    </div>
+
+    <div class="search-box">
+        <input type="hidden" name="part" value="">
+        <input type="hidden" name="part" value="lead">
+        <input type="hidden" name="part" value="rythm">
+    </div>
+
+
+    <div class="search-box">
+      <span class="search-box_label">part:</span>
+      <select>
+        <option name="part" value="">all</option>
+        <option name="part" value="lead">lead</option>
+        <option name="part" value="rythm">rythm</option>
+      </select>
+    </div>
+</form>
+
 
 <% if @gsounds.present? %>
-    <div>
-            <% @gsounds.each do |g| %>
-        <table class="a">
-                <tr>
-                	<td><%= attachment_image_tag g.user, :user_image, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg",class: "img-circle" %></td>
-                	<td><%= link_to g.user.user_name, user_path(g.user) %>
-                	<td><%= g.g_body %></td>
-    	            <td><%= g.g_bpm %></td>
-                    <td><%= g.g_key %></td>
-                    <td><%= g.g_part%></td>
-                </tr>
-                <tr>
-                    <td><%= audio_tag(g.g_sound, :autoplay => false, :controls => true) %></td>
-                    <td><%= link_to "edit", edit_gsound_path(g) %>
-	                <td><%= link_to "削除", gsound_path(g), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+    <div class="index">
+        <% @gsounds.each do |g| %>
+            <div class="one">
+                <div class="list_item"  data-bpm="<%= g.g_bpm %>" data-key="<%= g.g_key %>" data-part="<%= g.g_part%>">
+                    <div class="box1">
+                        <div><%= attachment_image_tag g.user, :user_image, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg",class: "img-circle" %></div>
+                        <button class="btn btn-primary glyphicon glyphicon-user">
+                        <%= link_to g.user.user_name, user_path(g.user), style: "color: white;" %>
+                        </button>
+                    </div>
+                    <div class="box1">
+                        <span class="gbody"><%= g.g_body%></span>
+                        <p class="gbody"><%= audio_tag(g.g_sound, :autoplay => false, :controls => true)%></p>
+                    </div>
 
+                    <div>
+                        <div class="text-left">
+                        <span class="cate-item">BPM: <%= g.g_bpm %></span>
+                        <span class="cate-item">KEY: <%= g.g_key %></span>
+                        <span class="cate-item">PART: <%= g.g_part %></span>
+                        </div>
+                        <br>
+                        <div>
+                            <% if g.liked_by?(current_user) %>
+                                <span class="like-favorite">
+                                <%= link_to gsound_likes_path(g), method: :delete do %>
+                                    <div class="fa fa-heart" aria-hidden="true" style="color: red;"></div>
+                                    <span class="like-favorite-item"><%= g.likes.count %>
+                                        <span style="padding-left: 7px;">good!</span>
+                                    </span>
+                                <% end %>
+                                </span>
+                            <% else %>
+                                <span class="like-favorite">
+                                    <%= link_to gsound_likes_path(g), method: :post do %>
+                                    <div class="fa fa-heart-o" aria-hidden="true"></div>
+                                    <span class="like-favorite-item"><%= g.likes.count %>
+                                        <span style="padding-left: 7px;">good!</span>
+                                    </span>
+                                    <% end %>
+                                </span>
+                            <% end %>
 
+                            <span class="like-favorite">
+                                <% if !Favorite.exists?(user_id:current_user.id,gsound_id:g) %>
+                                <div class="glyphicon glyphicon-star-empty">
+                                    <%= link_to "お気に入り",gsound_add_path(g),method: :gsound, class: "like-favorite-item" %>
+                                </div>
+                                <% else %>
+                                <div class="glyphicon glyphicon-star">
+                                    <%= link_to "お気に入り解除",gsound_add_path(g),method: :delete, class: "like-favorite-item" %>
+                                </div>
+                                <% end %>
+                            </span>
+                        </div>
 
+                        <% if g.user == current_user %>
 
+                        <div class="text-right editdelete">
+                            <button class="btn btn-primary glyphicon glyphicon-wrench">
+                            <%= link_to "edit", edit_gsound_path(g) ,class: "h"%>
+                            </button>
+                            <button class="btn btn-danger glyphicon glyphicon-trash">
+                            <%= link_to "delete", gsound_path(g), method: :delete, "data-confirm" => "本当に削除しますか？",class: "h" %>
+                            </button>
+                        </div>
 
+                        <% end %>
+                    </div>
+                </div>
 
-  
-
-	            </tr>
-	    </table>
-	        <% end %>
-<% end %>
+            </div>
+        <% end %>
     </div>
-</div>
+
+<% end %>
+
+</body>
+
+ 
 
 
 
+<script>
+
+var searchBox = '.search-box'; // 絞り込む項目を選択するエリア
+var listItem = '.list_item';   // 絞り込み対象のアイテム
+var hideClass = 'is-hide';     // 絞り込み対象外の場合に付与されるclass名
+
+$(function() {
+    // 絞り込み項目を変更した時
+    $(document).on('change', searchBox + ' select', function() {
+        search_filter();
+    });
+});
+
+/**
+ * リストの絞り込みを行う
+ */
+function search_filter() {
+    // 非表示状態を解除
+    $(listItem).removeClass(hideClass);
+    for (var i = 0; i < $(searchBox).length; i++) {
+        var name = $(searchBox).eq(i).find('input').attr('name');
+        // 選択されている項目を取得
+        var searchData = get_selected_input_items(name);
+        // 選択されている項目がない、またはALLを選択している場合は飛ばす
+        if(searchData.length === 0 || searchData[0] === '') {
+            continue;
+        }
+        // リスト内の各アイテムをチェック
+        for (var j = 0; j < $(listItem).length; j++) {
+            // アイテムに設定している項目を取得
+            var itemData = $(listItem).eq(j).data(name);
+            // 絞り込み対象かどうかを調べる
+            if(searchData.indexOf(itemData) === -1) {
+                $(listItem).eq(j).addClass(hideClass);
+            }
+        }
+    }
+}
+
+/**
+ * inputで選択されている値の一覧を取得する
+ * @param  {String} name 対象にするinputのname属性の値
+ * @return {Array}       選択されているinputのvalue属性の値
+ */
+function get_selected_input_items(name) {
+    var searchData = [];
+    $('[name=' + name + ']:checked').each(function() {
+        searchData.push($(this).val());
+    });
+    return searchData;
+}
+
+</script>
 
 
 

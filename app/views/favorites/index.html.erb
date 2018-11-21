@@ -1,0 +1,30 @@
+<div class="body1">
+
+
+<div onclick="obj=document.getElementById('menu1').style; obj.display=(obj.display=='none')?'block':'none';">
+<a style="cursor:pointer;">guitar favorite ▼ </a>
+</div>
+<div id="menu1" style="display:none;clear:both;">
+
+
+	<% if @favorites.present? %>
+	   <h2>お気に入りリスト</h2>
+	   <div>guitar favorite</div>
+    <% @favorites.each do |f| %>
+            <div><%= f.gsound.g_body %></div>
+            <div><%= f.gsound.g_bpm %></div>
+            <div><%= f.gsound.g_key %></div>
+            <div><%= audio_tag(f.gsound.g_sound, :autoplay => false, :controls => true) %></div>
+
+
+    <br />
+
+
+
+
+
+    <% end %>
+    <% end %>
+
+</div>
+</div>
