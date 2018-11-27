@@ -1,21 +1,26 @@
-<div class="text-center">
-	<h2>search for</h2>
-    <p><%= link_to "ギター一覧", gsounds_path %></p>
-    <p><%= link_to "ベース一覧", bsounds_path %></p>
-    <p><%= link_to "ピアノ一覧", psounds_path %></p>
-    <p><%= link_to "その他一覧", asounds_path %></p>
-</div>
+<body class="body1">
+    <div class="top-img">
+        <span>
+            <%= image_tag 'piano.jpeg', :size =>'370x250'%>
+        </span>
+        <span>
+            <%= image_tag 'guitar.jpeg', :size =>'370x250'%>
+        </span>
+    </div>
+    <div class="home-index">
+	    <h2>search for</h2>
+        <p><%= link_to "guitar", gsounds_path, class: "btn btn-danger", style: "font-size: 19px;" %></p>
+        <p><%= link_to "Bass", bsounds_path, class: "btn btn-danger", style: "font-size: 19px;" %></p>
+        <p><%= link_to "Piano", psounds_path, class: "btn btn-danger" , style: "font-size: 19px;"%></p>
+        <p><%= link_to "Another", asounds_path, class: "btn btn-danger", style: "font-size: 19px;" %></p>
+    </div>
 
-<div class="text-center">
-	<h2>contribute your sounds!</h2>
-    <span><%= link_to "ギター投稿", new_gsound_path %></span>
-    <span><%= link_to "ベース投稿", new_bsound_path %></span>
-    <span><%= link_to "ピアノ投稿", new_psound_path %></span>
-    <span><%= link_to "その他投稿", new_asound_path %></span>
-</div>
+    <div class="home-new">
+	    <h2>contribute your sounds!</h2><br>
+        <span><%= link_to "GUITAR", new_gsound_path, class: "btn btn-primary", style: "font-size: 19px;" %></span>
+        <span><%= link_to "BASS", new_bsound_path , class: "btn btn-primary", style: "font-size: 19px;"%></span>
+        <span><%= link_to "PIANO", new_psound_path, class: "btn btn-primary" , style: "font-size: 19px;"%></span>
+        <span><%= link_to "ANOTHER", new_asound_path, class: "btn btn-primary", style: "font-size: 19px;" %></span>
+    </div>
 
-<% if current_user.try(:admin?) %>
-<div class="text-center">
-    <span><%= link_to "ユーザー一覧", users_path %><span>
-</div>
-<% end %>
+</body>

@@ -1,3 +1,167 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.top-img{
+	text-align: center;
+}
+.home-index{
+	text-align: center;
+	font-size: 17px;
+	color: white;
+}
+.home-new{
+	text-align: center;
+	color: white;
+	font-size: 17px;
+	margin: 53px;
+}
+
+
+
+
+
+
+
+
+
+.follow_page {
+	width: 800px;
+	margin: 20px auto;
+}
+
+.my_page_main {
+	width: 800px;
+	height: 400px;
+	margin: 20px auto;
+	background-color: rgba( 255, 255, 255, 0.8);
+	border-radius: 10px;
+}
+
+.my_page_left {
+	width: 250px;
+	height: 400px;
+	float:left;
+}
+
+.my_page_image {
+	width: 250px;
+	height: 250px;
+	line-height: 250px;
+	text-align: center;
+}
+
+.user_profile-img {
+	border-radius: 50%;
+}
+
+.my_page_ufav {
+	width: 250px;
+	height: 70px;
+	text-align: center;
+}
+
+.my_page_info1 {
+	width: 250px;
+	height: 60px;
+	line-height: 60px;
+	margin: 10px auto 0 auto;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.my_page_right {
+	width: 550px;
+	height: 400px;
+	float:left;
+}
+
+.my_page_name {
+	width: 530px;
+	height: 80px;
+	margin: 10px auto 0 auto;
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.my_page_name_head {
+	width: 510px;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 auto;
+	border-bottom: 2px dotted gray;
+}
+
+.my_page_name_body {
+	width: 510px;
+	height: 50px;
+	line-height: 50px;
+	margin: 0 auto;
+}
+
+.my_page_prof {
+	width: 530px;
+	height: 220px;
+	margin: 10px auto 0 auto;
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.my_page_prof_head {
+	width: 510px;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 auto;
+	border-bottom: 2px dotted gray;
+}
+
+.my_page_prof_body {
+	width: 510px;
+	height: 190px;
+	line-height: 190px;
+	margin: 0 auto;
+}
+
+.my_page_info2 {
+	width: 530px;
+	height: 60px;
+	line-height: 60px;
+	margin: 10px auto 0 auto;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.my_page_req_head {
+	width: 800px;
+	height: 30px;
+	line-height: 30px;
+	background-color: gray;
+	border-radius: 50px;
+	margin: 0px auto;
+	padding-left: 15px;
+}
+.my_page_req {
+	width: 800px;
+	margin: 10px auto;
+	background-color: rgba( 255, 255, 255, 0.8);
+	border-radius: 10px;
+	padding: 5px 0;
+}
+
+.my_page_req:last-child {
+	margin: 10px auto 100px auto;
+}
+
+.my_page_req_title {
+	width: 550px;
+	padding-left: 15px;
+	float: left;
+}
+
+.my_page_req_price {
+	width: 250px;
+	float: left;
+	text-align: right;
+	padding-right: 15px;
+}

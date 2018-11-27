@@ -5,8 +5,10 @@
 
 
 
-<div class="text-center">
+<div class="search">
 <%= search_form_for @q do |f| %>
+
+
 <span class="serach-box">
   <%= f.label :g_bpm_start, "BPM", style: "color: white;" %>
   <%= f.select(:g_bpm_start, [['all', ''], ['100', '100'], ['120', '120'], ['140', '140'], ['160', '160']]) %>
@@ -104,6 +106,11 @@
     </div>
 
 <% end %>
+
+<div class="pagenate">
+<%= paginate @gsounds %>
+</div>
+
 
 </body>
 

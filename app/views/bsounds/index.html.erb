@@ -1,2 +1,121 @@
-<h1>Bsounds#index</h1>
-<p>Find me in app/views/bsounds/index.html.erb</p>
+<body class="body-guitar">
+
+
+
+
+
+
+<div class="search">
+<%= search_form_for @q do |f| %>
+<span class="serach-box">
+  <%= f.label :b_bpm_start, "BPM", style: "color: white;" %>
+  <%= f.select(:b_bpm_start, [['all', ''], ['100', '100'], ['120', '120'], ['140', '140'], ['160', '160']]) %>
+</span>
+
+<span class="serach-box">
+  <%= f.label :b_key_start, "KEY", style: "color: white;" %>
+  <%= f.select(:b_key_start, [['all', ''], ['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E'], ['F', 'F'], ['G', 'G']]) %>
+</span>
+<span class="serach-box">
+  <%= f.label :b_part_start, "PART", style: "color: white;" %>
+  <!-- <%= f.search_field :b_part_start %> -->
+  <%= f.select(:b_part_start, [['all', ''], ['rythm', 'rythm'], ['lead', 'lead']]) %>
+</span>
+<br>
+<br>
+  <%= f.submit %>
+<% end %>
+</div>
+
+<% if @bsounds.present? %>
+    <div class="index">
+        <% @bsounds.each do |b| %>
+            <div class="one">
+                <div class="list_item"  data-bpm="<%= b.b_bpm %>" data-key="<%= b.b_key %>" data-part="<%= b.b_part%>">
+                    <div class="box1">
+                        <div><%= attachment_image_tag b.user, :user_image, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg",class: "img-circle" %></div>
+                        <button class="btn btn-primary glyphicon glyphicon-user">
+                        <%= link_to b.user.user_name, user_path(b.user), style: "color: white;" %>
+                        </button>
+                    </div>
+                    <div class="box1">
+                        <span class="gbody"><%= b.b_body%></span>
+                        <p class="gbody"><%= audio_tag(b.b_sound, :autoplay => false, :controls => true)%></p>
+                    </div>
+
+                    <div>
+                        <div class="text-left">
+                        <span class="cate-item">BPM: <%= b.b_bpm %></span>
+                        <span class="cate-item">KEY: <%= b.b_key %></span>
+                        <span class="cate-item">PART: <%= b.b_part %></span>
+                        </div>
+                        <br>
+                        <div>
+                            <% if b.liked_by?(current_user) %>
+                                <span class="like-favorite">
+                                <%= link_to bsound_blikes_path(b), method: :delete do %>
+                                    <div class="fa fa-heart" aria-hidden="true" style="color: red;"></div>
+                                    <span class="like-favorite-item"><%= b.blikes.count %>
+                                        <span style="padding-left: 7px;">good!</span>
+                                    </span>
+                                <% end %>
+                                </span>
+                            <% else %>
+                                <span class="like-favorite">
+                                    <%= link_to bsound_blikes_path(b), method: :post do %>
+                                    <div class="fa fa-heart-o" aria-hidden="true"></div>
+                                    <span class="like-favorite-item"><%= b.blikes.count %>
+                                        <span style="padding-left: 7px;">good!</span>
+                                    </span>
+                                    <% end %>
+                                </span>
+                            <% end %>
+
+                            <span class="like-favorite">
+                                <% if !Bfavorite.exists?(user_id:current_user.id,bsound_id:b) %>
+                                <div class="glyphicon glyphicon-star-empty">
+                                    <%= link_to "お気に入り",bsound_add_path(b),method: :gsound, class: "like-favorite-item" %>
+                                </div>
+                                <% else %>
+                                <div class="glyphicon glyphicon-star">
+                                    <%= link_to "お気に入り解除",bsound_add_path(b),method: :delete, class: "like-favorite-item" %>
+                                </div>
+                                <% end %>
+                            </span>
+                        </div>
+
+                        <% if b.user == current_user %>
+
+                        <div class="text-right editdelete">
+                            <button class="btn btn-primary glyphicon glyphicon-wrench">
+                            <%= link_to "edit", edit_bsound_path(b) ,class: "h"%>
+                            </button>
+                            <button class="btn btn-danger glyphicon glyphicon-trash">
+                            <%= link_to "delete", bsound_path(b), method: :delete, "data-confirm" => "本当に削除しますか？",class: "h" %>
+                            </button>
+                        </div>
+
+                        <% end %>
+                    </div>
+                </div>
+
+            </div>
+        <% end %>
+    </div>
+
+<% end %>
+
+<div class="pagenate">
+<%= paginate @bsounds %>
+</div>
+
+
+</body>
+
+ 
+
+
+
+
+
+

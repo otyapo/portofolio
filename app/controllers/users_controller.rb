@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def show
     @user = User.find(params[:id])
   end
@@ -20,6 +21,12 @@ class UsersController < ApplicationController
   def destroy
   end
 
+
+
+
+  def taikai
+  end
+
    def following
       @user  = User.find(params[:id])
       @users = @user.followings
@@ -31,6 +38,8 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'show_follower'
   end
+
+
 
   private
     def user_params

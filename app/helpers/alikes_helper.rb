@@ -1,0 +1,2 @@
+module AlikesHelper
+end

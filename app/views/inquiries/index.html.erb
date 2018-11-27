@@ -1,0 +1,34 @@
+<body class="body1">
+<%= form_for @inquiry, :url => inquiries_confirm_path do |f| %>
+
+  <% if @inquiry.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>Value is required</strong>
+      <ul>
+        <% @inquiry.errors.each do |attr, msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mail_page">
+    <p class="mail_head"><b>Please send us a message here</b></p>
+    <div class="mail_form">
+      <p><b>Name<span class="text-danger">（Mandatory field）</span></b></p>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="mail_form">
+      <p><b>Mail Aderess<span class="text-danger">（Mandatory field）</span></b></p>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+    <div class="mail_form">
+      <p><b>Enter Your Message</b></p>
+      <%= f.text_area :message, class: "form-control", rows: "7" %>
+    </div>
+    <div class="mail_submit">
+      <%= f.submit 'Confirmation', class: 'btn btn-info form-control' %>
+    </div>
+  </div>
+<% end %>
+</body>

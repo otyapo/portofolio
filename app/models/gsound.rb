@@ -16,4 +16,11 @@ class Gsound < ApplicationRecord
 
 
 
+
+
+    validates :g_sound, presence: true
+    validates :g_bpm, presence: true
+    validates :g_key, presence: true
+    validates :g_part, presence: true
+    validates :g_body, presence: true, length: { maximum: 150 }
 end

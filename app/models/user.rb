@@ -6,8 +6,17 @@ class User < ApplicationRecord
   attachment :user_image
 
   has_many :gsounds, through: :favorites
+  has_many :asounds, through: :favorites
+  has_many :bsounds, through: :favorites
+  has_many :psounds, through: :favorites
   has_many :favorites
+  has_many :afavorites
+  has_many :bfavorites
+  has_many :pfavorites
   has_many :likes
+  has_many :alikes
+  has_many :blikes
+  has_many :plikes
 
 
 
@@ -31,5 +40,13 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     following_relationships.find_by(following_id: other_user.id).destroy
   end
+
+
+  validates :user_name, presence: true
+  validates :email, presence: true
+  validates :profile, length: { maximum: 150 }
+
+
+
 end
 

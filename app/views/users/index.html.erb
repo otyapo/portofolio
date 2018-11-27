@@ -1,6 +1,14 @@
+<body style="padding-left: 20%;">
 <div class="text-center">
+	<table>
 	<% @users.each do |u| %>
-	<%= attachment_image_tag u, :user_image, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg",class: "img-circle" %>
-	<%= u.user_name %>
+	
+	<tr>
+	<td><%= attachment_image_tag u, :user_image, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg",class: "img-circle" %></td>
+	<td><%= u.user_name %></td>
+    </tr>
+
 	<% end %>
+</table>
 </div>
+</body>

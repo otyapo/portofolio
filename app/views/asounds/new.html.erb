@@ -1,2 +1,16 @@
-<h1>Asounds#new</h1>
-<p>Find me in app/views/asounds/new.html.erb</p>
+<body class="body-guitar">
+　　　　<div class="text-center">
+	<h1 style="color:white;">Please Post Another Sound!!</h1>
+　　　　　　　<%= form_for(@asound) do |f| %>
+            <div class="search-box">
+                <span class="search-i"><%= f.select :a_bpm, [["100", "100"],["120", "120"],["140","140"],["160","160"]] %></span>
+                <span class="search-i"><%= f.select :a_key, [["A", "A"],["B", "B"],["C","C"],["D","D"],["E","E"],["F","F"],["G","G"]] %></span>
+                <span class="search-i"><%= f.select :a_part, [["rythm", "rythm"],["lead", "lead"]] %></span>
+            </div>
+                <p class="new-audio"><%= f.file_field :a_sound, class: "g"%></p>
+　　　　　　　　<p class="new-body"><%= f.text_area :a_body %></p>
+
+　　　　　　　　<div class="text-center"><button type=submit class="btn btn-danger">contribution</button></div>
+　　　　　　　<% end %>
+　　　　</div>
+</body>

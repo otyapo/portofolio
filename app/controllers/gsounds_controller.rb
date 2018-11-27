@@ -1,4 +1,5 @@
 class GsoundsController < ApplicationController
+  before_action :authenticate_user!
 
   def show
     @gsound = Gsound.find(params[:id])
@@ -7,7 +8,8 @@ class GsoundsController < ApplicationController
   def index
     #@gsounds = Gsound.all
     @q        = Gsound.search(params[:q])
-    @gsounds = @q.result(distinct: true)
+    @gsounds = @q.result(distinct: true).page(params[:page])
+
   end
 
   def new

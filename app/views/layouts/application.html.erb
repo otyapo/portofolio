@@ -7,17 +7,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
     
   </head>
 
     <body>
   <header>
+    <div class="header-font">
+    <p class="fa fa-music faa-pulse animated", style="color: white; font-size: 90px;padding-top: 30px;"></p>
     <% if user_signed_in? %>
-        <div class="header-font">
         <p class="home"><%= link_to "HOME", root_path %></p>
         <p class="user"><%= link_to "User", user_path(current_user.id) %></p>
-        <p class="aboutus"><%= link_to "About us", homes_path %></p>
-        <p class="contactus"><%= link_to "Contact us" %></p>
+        <p class="favoriteaudio"><%= link_to "Favorite Audio", favorites_path %></p>
+        <p class="contactus"><%= link_to "Contact us", inquiries_path %></p>
         <p class="logout"><%= link_to 'log out', destroy_user_session_path, method: :delete%></p>
     <% else %>
         <p class="sign-up"><%= link_to "Sign up", new_user_registration_path %></p>
