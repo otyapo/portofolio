@@ -1,0 +1,27 @@
+<body class="body1">
+<%= form_for @inquiry, :url => inquiries_thanks_path do |f| %>
+
+<div class="mail_page">
+    <p class="mail_head"><b>Inquiry confirmation</b></p>
+    <div class="mail_form">
+      <p><b>Name<span class="text-danger">（Mandatory field）</span></b></p>
+      <%= f.hidden_field :name %>
+      <%= @inquiry.name %>
+    </div>
+    <div class="mail_form">
+      <p><b>Mail Adress<span class="text-danger">（Mandatory field）</span></b></p>
+      <%= f.hidden_field :email %>
+      <%= @inquiry.email %>
+    </div>
+    <div class="mail_form">
+      <p><b>Content of inquiry</b></p>
+      <%= f.hidden_field :message %>
+        <%= simple_format(@inquiry.message) %>
+    </div>
+    <div class="mail_submit">
+      <%= f.submit 'submit', :class => 'btn btn-info form-control' %>
+
+    </div>
+  </div>
+  <% end %>
+</body>

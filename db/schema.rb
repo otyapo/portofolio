@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_064518) do
+ActiveRecord::Schema.define(version: 2018_11_26_113712) do
+
+  create_table "afavorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "asound_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "alikes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "asound_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "asounds", force: :cascade do |t|
     t.string "a_sound"
@@ -21,11 +35,26 @@ ActiveRecord::Schema.define(version: 2018_11_19_064518) do
     t.integer "a_likes_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "audio_files", force: :cascade do |t|
     t.string "gname"
     t.string "gfile"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bfavorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "bsound_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "blikes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "bsound_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_064518) do
     t.integer "b_likes_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -63,14 +93,36 @@ ActiveRecord::Schema.define(version: 2018_11_19_064518) do
     t.integer "user_id"
   end
 
+  create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "b_sound_id"
-    t.integer "p_sound_id"
-    t.integer "a_sound_id"
+    t.integer "bsound_id"
+    t.integer "psound_id"
+    t.integer "asound_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "gsound_id"
+  end
+
+  create_table "pfavorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "psound_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "plikes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "psound_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "psounds", force: :cascade do |t|
@@ -82,6 +134,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_064518) do
     t.integer "p_likes_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "relationships", force: :cascade do |t|

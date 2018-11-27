@@ -1,9 +1,71 @@
-<div class="text-center">
-	 <%= attachment_image_tag @user, :user_image, size: '100x100', fallback: "no_image.jpg",class: "img-circle" %>
-	<p><%= @user.user_name %></p>
-	<p><%= @user.profile %></p>
-	<%= link_to "edit", edit_user_path(@user.id) %>
-	　<%= render 'follow_form' %>
-　　　<%= render 'stats' %>
-<%= link_to "favorite",favorites_path %>
-</div>
+<body class="body1">
+
+  <div class="my_page_main clearfix">
+
+    <div class="my_page_left">
+      <div class="my_page_image">
+        <%= attachment_image_tag @user, :user_image,  size: '100x100', fallback: "no_image.jpg", class: "user_profile-img" %>
+      </div>
+      <div class="my_page_ufav">
+        <p>
+          <a href="<%= following_user_path(@user) %>">
+            <%= @user.followings.count %>
+              following
+          </a>
+              ||
+          <a href="<%= followers_user_path(@user) %>">
+              <%= @user.followers.count %>
+              follower
+          </a>
+          </p>
+          <% if @user == current_user %>
+              <%= link_to 'edit', edit_user_path(@user.id), class: "btn btn-info" %>
+              <%= link_to "cancel the membership", users_taikai_path(current_user), style: "color: white;", class: "btn btn-danger" %>
+            <% end %>
+      </div>
+      <div class="my_page_info1">
+
+          <% if @user == current_user %>
+             <%= link_to "favorite audio",favorites_path, class: "btn btn-info" %>
+          <% else %>
+            <% if current_user.following?(@user) %>
+            <%= render 'unfollow', class: "follow"%>
+            <% else %>
+            <%= render 'follow', class: "follow" %>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="my_page_right">
+
+      <div class="my_page_name">
+        <div class="my_page_name_head">
+          <p><b>name</b></p>
+        </div>
+        <div class="my_page_name_body">
+          <%= @user.user_name  %>
+        </div>
+      </div>
+
+      <div class="my_page_prof">
+        <div class="my_page_prof_head">
+          <p><b>introduction</b></p>
+        </div>
+        <div class="my_page_prof_body">
+          <%= simple_format(@user.profile) %>
+        </div>
+      </div>
+
+    </div>
+    <% if current_user.try(:admin?) %>
+        <div class="text-center">
+            <span><%= link_to "user index", users_path %><span>
+        </div>
+    <% end %>
+
+  </div>
+
+
+
+</body>

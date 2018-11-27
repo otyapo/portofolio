@@ -1,11 +1,50 @@
-<div class="body1">
-<% @user.followings.each do |user| %>
-<table>
-<tr>
-  <td>  <%= user.user_name %> </td>
-  <td><%= link_to '詳細', user_path(user) %></td>
-</tr>
-
-</table>
-<% end %>
+<body class="body1">
+<div class="fol_index_header">
+  <p><b>フォロー一覧</b></p>
 </div>
+
+<div class="fol_index">
+
+  <div class="fol_index_head clearfix">
+    <div class="fol_index_h_image"></div>
+    <div class="fol_index_h_nick">
+      <b>name</b>
+    </div>
+    <div class="fol_index_h_prof">
+      <b>自己紹介</b>
+    </div>
+  </div>
+
+  <% @user.followings.each do |user| %>
+
+    <div class="fol_index_body clearfix">
+
+      <div class="fol_index_b_image">
+       
+      </div>
+      <div class="fol_index_b_nick">
+        <%= link_to user_path(user) do %>
+          <%= user.user_name %>
+        <% end %>
+      </div>
+      <div class="fol_index_b_prof">
+        <%= truncate(user.profile, length: 25, omission: " ....") %>
+        </div>
+
+    </div>
+
+  <% end %>
+
+  
+  <div class="fol_submit">
+    <%= link_to '戻る', user_path(current_user.id) %>
+  </div>
+
+</div>
+
+
+
+
+
+
+</body>

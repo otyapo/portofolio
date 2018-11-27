@@ -1,2 +1,121 @@
-<h1>Psounds#index</h1>
-<p>Find me in app/views/psounds/index.html.erb</p>
+<body class="body-guitar">
+
+
+
+
+
+
+<div class="search">
+<%= search_form_for @q do |f| %>
+<span class="serach-box">
+  <%= f.label :p_bpm_start, "BPM", style: "color: white;" %>
+  <%= f.select(:p_bpm_start, [['all', ''], ['100', '100'], ['120', '120'], ['140', '140'], ['160', '160']]) %>
+</span>
+
+<span class="serach-box">
+  <%= f.label :p_key_start, "KEY", style: "color: white;" %>
+  <%= f.select(:p_key_start, [['all', ''], ['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E'], ['F', 'F'], ['G', 'G']]) %>
+</span>
+<span class="serach-box">
+  <%= f.label :p_part_start, "PART", style: "color: white;" %>
+  <!-- <%= f.search_field :p_part_start %> -->
+  <%= f.select(:p_part_start, [['all', ''], ['rythm', 'rythm'], ['lead', 'lead']]) %>
+</span>
+<br>
+<br>
+  <%= f.submit %>
+<% end %>
+</div>
+
+<% if @psounds.present? %>
+    <div class="index">
+        <% @psounds.each do |i| %>
+            <div class="one">
+                <div class="list_item"  data-bpm="<%= i.p_bpm %>" data-key="<%= i.p_key %>" data-part="<%= i.p_part%>">
+                    <div class="box1">
+                        <div><%= attachment_image_tag i.user, :user_image, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg",class: "img-circle" %></div>
+                        <button class="btn btn-primary glyphicon glyphicon-user">
+                        <%= link_to i.user.user_name, user_path(i.user), style: "color: white;" %>
+                        </button>
+                    </div>
+                    <div class="box1">
+                        <span class="gbody"><%= i.p_body%></span>
+                        <p class="gbody"><%= audio_tag(i.p_sound, :autoplay => false, :controls => true)%></p>
+                    </div>
+
+                    <div>
+                        <div class="text-left">
+                        <span class="cate-item">BPM: <%= i.p_bpm %></span>
+                        <span class="cate-item">KEY: <%= i.p_key %></span>
+                        <span class="cate-item">PART: <%= i.p_part %></span>
+                        </div>
+                        <br>
+                        <div>
+                            <% if i.liked_by?(current_user) %>
+                                <span class="like-favorite">
+                                <%= link_to psound_plikes_path(i), method: :delete do %>
+                                    <div class="fa fa-heart" aria-hidden="true" style="color: red;"></div>
+                                    <span class="like-favorite-item"><%= i.plikes.count %>
+                                        <span style="padding-left: 7px;">good!</span>
+                                    </span>
+                                <% end %>
+                                </span>
+                            <% else %>
+                                <span class="like-favorite">
+                                    <%= link_to psound_plikes_path(i), method: :post do %>
+                                    <div class="fa fa-heart-o" aria-hidden="true"></div>
+                                    <span class="like-favorite-item"><%= i.plikes.count %>
+                                        <span style="padding-left: 7px;">good!</span>
+                                    </span>
+                                    <% end %>
+                                </span>
+                            <% end %>
+
+                            <span class="like-favorite">
+                                <% if !Pfavorite.exists?(user_id:current_user.id,psound_id:i) %>
+                                <div class="glyphicon glyphicon-star-empty">
+                                    <%= link_to "お気に入り",psound_add_path(i),method: :gsound, class: "like-favorite-item" %>
+                                </div>
+                                <% else %>
+                                <div class="glyphicon glyphicon-star">
+                                    <%= link_to "お気に入り解除",psound_add_path(i),method: :delete, class: "like-favorite-item" %>
+                                </div>
+                                <% end %>
+                            </span>
+                        </div>
+
+                        <% if i.user == current_user %>
+
+                        <div class="text-right editdelete">
+                            <button class="btn btn-primary glyphicon glyphicon-wrench">
+                            <%= link_to "edit", edit_psound_path(i) ,class: "h"%>
+                            </button>
+                            <button class="btn btn-danger glyphicon glyphicon-trash">
+                            <%= link_to "delete", psound_path(i), method: :delete, "data-confirm" => "本当に削除しますか？",class: "h" %>
+                            </button>
+                        </div>
+
+                        <% end %>
+                    </div>
+                </div>
+
+            </div>
+        <% end %>
+    </div>
+
+<% end %>
+
+<div class="pagenate">
+<%= paginate @psounds %>
+</div>
+
+
+</body>
+
+ 
+
+
+
+
+
+

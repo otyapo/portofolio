@@ -1,0 +1,24 @@
+
+<body class="body1">
+<section>
+	<div class="taikai_page">
+
+		<h3><u style="font-family: 'arial black';">Please read it before you leave</u></h3><br>
+
+		<p style="font-size: 20px; font-family: 'arial black';">
+			If you unsubscribe , this service will be unavailable<br><br>
+			Please click on the 『 unsubscribe button 』 if you're still<br><br>
+			<br><br><br><br>
+
+		</p>
+
+		<div class="taikai_link">
+			<%= link_to "back", user_path(current_user.id) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<%= link_to "cancel the membership", user_registration_path, method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+		</div>
+
+    </div>
+
+
+</section>
+</body>

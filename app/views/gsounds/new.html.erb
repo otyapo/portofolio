@@ -1,12 +1,16 @@
-<div class="body1">
-<div class="text-center">
-<%= form_for(@gsound) do |f| %>
-<span><%= f.select :g_bpm, [["100", "100"],["120", "120"],["140","140"],["160","160"]] %></span>
-<span><%= f.select :g_key, [["A", "A"],["B", "B"],["C","C"],["D","D"],["E","E"],["F","F"],["G","G"]] %></span>
-<span><%= f.select :g_part, [["rythm", "rythm"],["lead", "lead"]] %></span>
-<p><%= f.file_field :g_sound, class: "g"%></p>
-<p><%= f.text_area :g_body %></p>
-<div class="text-center"><button type=submit class="btn btn-danger">contribution</button></div>
-<% end %>
-</div>
-</div>
+<body class="body-guitar">
+　　　　<div class="text-center">
+	<h1 style="color:white;">Please Post Guitar Sound!!</h1>
+　　　　　　　<%= form_for(@gsound) do |f| %>
+            <div class="search-box">
+                <span class="search-i"><%= f.select :g_bpm, [["100", "100"],["120", "120"],["140","140"],["160","160"]] %></span>
+                <span class="search-i"><%= f.select :g_key, [["A", "A"],["B", "B"],["C","C"],["D","D"],["E","E"],["F","F"],["G","G"]] %></span>
+                <span class="search-i"><%= f.select :g_part, [["rythm", "rythm"],["lead", "lead"]] %></span>
+            </div>
+                <p class="new-audio"><%= f.file_field :g_sound, class: "g"%></p>
+　　　　　　　　<p class="new-body"><%= f.text_area :g_body %></p>
+
+　　　　　　　　<div class="text-center"><button type=submit class="btn btn-danger">contribution</button></div>
+　　　　　　　<% end %>
+　　　　</div>
+</body>

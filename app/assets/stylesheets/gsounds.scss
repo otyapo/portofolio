@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.search{
+	text-align: center;
+	font-size: 23px;
+}
 .category{
 	font-size: 20px;
 	margin-top: 20px;
@@ -21,6 +26,7 @@
 }
 .index{
 	margin: 50px;
+	text-align: center;
 }
 .one{
 	margin: 50px;
@@ -38,8 +44,8 @@
 .body-guitar{
 	padding-left: 20%;
 	background-color: #222222;
-	background-size: cover;
-	background-position:  top;
+	background-size: auto;
+
 }
 .search-box{
 	display: inline;
@@ -54,13 +60,17 @@ form{
 	display: inline-block;
 	margin: 20px;
 	text-align: center;
+    word-break: break-all;
+	width:30em;
 }
+
 
 .gbody{
 font-size: 30px;
 margin: 19px;
 color: white;
 }
+
 
 .editdelete{
 	font-size: 17px;
@@ -69,13 +79,29 @@ color: white;
 	color: white;
 }
 .cate-item{
-	margin: 0 30px;
+	margin: 0 10px;
 	font-size: 20px;
+	color: red;
+	padding-left: 130px;
+}
+.search-i{
+margin: 13px;
+}
+.new-body{
+	font-size: 57px;
+	padding-top: 50px;
+}
+.new-audio{
+	padding-left: 40%;
+	padding-top: 50px;
 	color: white;
 }
-.search-box{
-	margin: 30px;
+.pagenate{
+	color: white;
+	text-align: center;
+	font-size: 23px;
 }
+
 
 
 

@@ -2,6 +2,239 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.a{
-	padding-left:600px;
+
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
 }
+
+.body1{
+background-color: #222222;
+height: 100%;
+}
+
+.user_body{
+	margin-top: 50px;
+}
+
+.follow{
+	margin-top: -40px;
+}
+.follow_page {
+	width: 800px;
+	margin: 20px auto;
+}
+
+.my_page_main {
+	width: 800px;
+	height: 500px;
+	margin: 20px auto;
+	background-color: rgba( 255, 255, 255, 0.8);
+	border-radius: 10px;
+}
+
+.my_page_left {
+	width: 250px;
+	height: 400px;
+	float:left;
+}
+
+.my_page_image {
+	width: 250px;
+	height: 250px;
+	line-height: 250px;
+	text-align: center;
+}
+
+.user_profile-img {
+	border-radius: 50%;
+}
+
+.my_page_ufav {
+	width: 250px;
+	height: 70px;
+	text-align: center;
+}
+
+.my_page_info1 {
+	width: 250px;
+	height: 60px;
+	line-height: 60px;
+	margin: 10px auto 0 auto;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.my_page_right {
+	width: 550px;
+	height: 400px;
+	float:left;
+}
+
+.my_page_name {
+	width: 530px;
+	height: 80px;
+	margin: 10px auto 0 auto;
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.my_page_name_head {
+	width: 510px;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 auto;
+	border-bottom: 2px dotted gray;
+}
+
+.my_page_name_body {
+	width: 510px;
+	height: 50px;
+	line-height: 50px;
+	margin: 0 auto;
+}
+
+.my_page_prof {
+	width: 530px;
+	height: 220px;
+	margin: 10px auto 0 auto;
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.my_page_prof_head {
+	width: 510px;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 auto;
+	border-bottom: 2px dotted gray;
+}
+
+.my_page_prof_body {
+	width: 510px;
+	height: 190px;
+	line-height: 63px;
+	margin: 0 auto;
+	word-break: break-all;
+}
+
+.my_page_info2 {
+	width: 530px;
+	height: 60px;
+	line-height: 60px;
+	margin: 10px auto 0 auto;
+	border-radius: 10px;
+	text-align: center;
+}
+
+
+/*-follow-------------------------------------------------------------*/
+
+.fol_index_header {
+	width: 800px;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 15px;
+	background-color: gray;
+	border-radius: 50px;
+	margin: 20px auto;
+}
+
+.fol_index {
+	width: 800px;
+	border-radius: 10px;
+	margin: 0 auto 100px auto;
+	padding: 20px 10px 40px 10px;
+	background-color: rgba( 255, 255, 255, 0.8);
+}
+
+.fol_index_head {
+	width: 780px;
+	background-color: lightgray;
+	border-radius: 50px;
+	margin: 10px auto;
+}
+
+.fol_index_h_image {
+	width: 60px;
+	height: 40px;
+	float: left;
+	text-align: center;
+	line-height: 55px;
+}
+
+
+.fol_index_h_nick {
+	width: 205px;
+	line-height: 40px;
+	float: left;
+	padding-left: 10px;
+}
+
+.fol_index_h_prof{
+	width: 515px;
+	line-height: 40px;
+	float: left;
+	padding-left: 10px;
+}
+.fol_index_body {
+	width: 780px;
+	margin: 0 auto;
+	border-bottom: 2px dotted gray;
+}
+
+.fol_index_b_image {
+	width: 60px;
+	height: 60px;
+	float: left;
+	text-align: center;
+	line-height: 60px;
+}
+
+.fol_index_b_nick {
+	width: 205px;
+	line-height: 60px;
+	float: left;
+	padding-left: 10px;
+	/*background-color:pink;*/
+}
+.fol_index_b_prof{
+	width: 515px;
+	line-height: 60px;
+	float: left;
+	padding-left: 10px;
+	/*background-color:blue;*/
+}
+
+.fol_submit {
+	text-align: right;
+	padding: 10px 15px 0 0;
+}
+
+/*-taikai-------------------------------------------------------------*/
+
+.taikai_page {
+	width: 750px;
+	margin: 20px auto;
+	border-radius: 10px;
+	background-color: rgba( 255, 255, 255, 0.8);
+	padding: 15px;
+	line-height: 2;
+}
+
+.taikai_page span {
+	color: red;
+}
+
+.taikai_link {
+	text-align: right;
+}
+
+/*-edit-------------------------------------------------------------*/
+.attachment1{
+	padding-left: 45%;
+	color: white;
+}
+
+

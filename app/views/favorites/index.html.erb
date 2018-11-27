@@ -1,30 +1,145 @@
-<div class="body1">
+<body class="body1">
+
+<div class="col-lg-6">
+
+    <div class="category-left">
+        <div onclick="obj=document.getElementById('menu1').style; obj.display=(obj.display=='none')?'block':'none';">
+            <a style="cursor:pointer;" class="g-cate">guitar favorite ▶︎ </a>
+　　　　　</div>
+    </div>
 
 
-<div onclick="obj=document.getElementById('menu1').style; obj.display=(obj.display=='none')?'block':'none';">
-<a style="cursor:pointer;">guitar favorite ▼ </a>
+
+    <div class="category-left">
+        <div onclick="obj=document.getElementById('menu2').style; obj.display=(obj.display=='none')?'block':'none';">
+            <a style="cursor:pointer;" class="b-cate">Bass favorite ▶︎ </a>
+　　　　　</div>
+    </div>
+
+
+    <div class="category-left">
+        <div onclick="obj=document.getElementById('menu3').style; obj.display=(obj.display=='none')?'block':'none';">
+            <a style="cursor:pointer;" class="p-cate">piano favorite ▶︎ </a>
+　　　　　</div>
+    </div>
+
+    <div class="category-left a-cate">
+        <div onclick="obj=document.getElementById('menu4').style; obj.display=(obj.display=='none')?'block':'none';">
+            <a style="cursor:pointer;" class="a-cate">another favorite ▶︎ </a>
+　　　　　</div>
+    </div>
 </div>
-<div id="menu1" style="display:none;clear:both;">
-
-
-	<% if @favorites.present? %>
-	   <h2>お気に入りリスト</h2>
-	   <div>guitar favorite</div>
-    <% @favorites.each do |f| %>
-            <div><%= f.gsound.g_body %></div>
-            <div><%= f.gsound.g_bpm %></div>
-            <div><%= f.gsound.g_key %></div>
-            <div><%= audio_tag(f.gsound.g_sound, :autoplay => false, :controls => true) %></div>
-
-
-    <br />
 
 
 
 
 
-    <% end %>
-    <% end %>
+
+
+
+<div class="col-lg-6">
+    <div class="category-right">
+        <div id="menu1" style="display:none;clear:both;">
+
+            <% if @favorites.present? %>
+                <div class="g-cate">
+                    <h2>guitar favorite</h2>
+                    <% @favorites.each do |f| %>
+                    <div style=" margin: 30px 0; font-size: 19px;">
+                        <div><%= f.gsound.g_body %></div>
+                        <span style="color: red; margin: 10px;"><%= f.gsound.g_bpm %></span>
+                        <span style="color:red; margin: 10px;"><%= f.gsound.g_key %></span>
+                        <span style="color: red; margin: 10px;"><%= f.gsound.g_part %></span>
+                        <div><%= audio_tag(f.gsound.g_sound, :autoplay => false, :controls => true) %></div>
+                    </div>
+
+                    <% end %>
+                </div>
+
+            <% end %>
+
+        </div>
+    </div>
+
+    <div class="category-right">
+        <div id="menu2" style="display:none;clear:both;">
+
+            <% if @bfavorites.present? %>
+                <div class="b-cate">
+                    <h2>bass favorite</h2>
+                    <% @bfavorites.each do |b| %>
+                    <div style=" margin: 30px 0; font-size: 19px;">
+                        <div><%= b.bsound.b_body %></div>
+                        <span style="color: red; margin: 10px;"><%= b.bsound.b_bpm %></span>
+                        <span style="color:red; margin: 10px;"><%= b.bsound.b_key %></span>
+                        <span style="color: red; margin: 10px;"><%= b.bsound.b_part %></span>
+                        <div><%= audio_tag(b.bsound.b_sound, :autoplay => false, :controls => true) %></div>
+                    </div>
+
+                    <% end %>
+                </div>
+
+            <% end %>
+
+        </div>
+    </div>
+
+
+
+<div class="category-right">
+        <div id="menu3" style="display:none;clear:both;">
+
+            <% if @pfavorites.present? %>
+                <div class="p-cate">
+                    <h2>piano favorite</h2>
+                    <% @pfavorites.each do |f| %>
+                    <div style=" margin: 30px 0; font-size: 19px;">
+                        <div><%= f.psound.p_body %></div>
+                        <span style="color: red; margin: 10px;"><%= f.psound.p_bpm %></span>
+                        <span style="color:red; margin: 10px;"><%= f.psound.p_key %></span>
+                        <span style="color: red; margin: 10px;"><%= f.psound.p_part %></span>
+                        <div><%= audio_tag(f.psound.p_sound, :autoplay => false, :controls => true) %></div>
+                    </div>
+
+                    <% end %>
+                </div>
+
+            <% end %>
+
+        </div>
+    </div>
+
+
+
+<div class="category-right">
+        <div id="menu4" style="display:none;clear:both;">
+
+            <% if @afavorites.present? %>
+                <div class="a-cate">
+                    <h2>another favorite</h2>
+                    <% @afavorites.each do |f| %>
+                    <div style=" margin: 30px 0; font-size: 19px;">
+                        <div><%= f.asound.a_body %></div>
+                        <span style="color: red; margin: 10px;"><%= f.asound.a_bpm %></span>
+                        <span style="color:red; margin: 10px;"><%= f.asound.a_key %></span>
+                        <span style="color: red; margin: 10px;"><%= f.asound.a_part %></span>
+                        <div><%= audio_tag(f.asound.a_sound, :autoplay => false, :controls => true) %></div>
+                    </div>
+
+                    <% end %>
+                </div>
+
+            <% end %>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
 
 </div>
-</div>
+</body>
