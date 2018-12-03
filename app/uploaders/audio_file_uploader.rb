@@ -12,10 +12,10 @@ class AudioFileUploader < CarrierWave::Uploader::Base
   # version :mp3 do
   #   process :convert => [{output_format: :mp3}]
 
-    def full_filename(for_file)
-      "#{super.chomp(File.extname(super))}.mp3"
-    end
-  end
+    # def full_filename(for_file)
+      # "#{super.chomp(File.extname(super))}.mp3"
+    # end
+  # end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
