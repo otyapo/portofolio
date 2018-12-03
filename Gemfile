@@ -14,6 +14,8 @@ gem 'ruby-sox'
 gem 'kaminari'
 gem 'font-awesome-rails'
 gem 'ransack'
+# gem 'fog'
+gem 'fog-aws'
 
 ruby '2.5.1'
 
@@ -79,4 +81,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem 'pry-rails'
+
+
 

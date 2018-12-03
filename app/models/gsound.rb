@@ -5,7 +5,7 @@ class Gsound < ApplicationRecord
 
     belongs_to :user
 
-    has_many :favorites
+    has_many :favorites, dependent: :destroy
     has_many :users, through: :favorites
 
     has_many :likes, dependent: :destroy

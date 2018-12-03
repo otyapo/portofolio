@@ -5,7 +5,7 @@ class Asound < ApplicationRecord
 
     belongs_to :user
 
-    has_many :favorites
+    has_many :afavorites, dependent: :destroy
     has_many :users, through: :favorites
 
     has_many :alikes, dependent: :destroy

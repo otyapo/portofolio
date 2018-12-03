@@ -18,6 +18,7 @@ class PsoundsController < ApplicationController
   def create
     psound = Psound.new(psound_params)
     psound.user_id = current_user.id
+    binding.pry
     psound.save
     redirect_to psounds_path
   end

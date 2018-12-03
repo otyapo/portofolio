@@ -5,7 +5,7 @@ class Bsound < ApplicationRecord
 
     belongs_to :user
 
-    has_many :favorites
+    has_many :bfavorites, dependent: :destroy
     has_many :users, through: :favorites
 
     has_many :blikes, dependent: :destroy
