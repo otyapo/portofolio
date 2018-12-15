@@ -5,7 +5,7 @@ class Psound < ApplicationRecord
 
     belongs_to :user
 
-    has_many :favorites
+    has_many :pfavorites, dependent: :destroy
     has_many :users, through: :favorites
 
     has_many :plikes, dependent: :destroy

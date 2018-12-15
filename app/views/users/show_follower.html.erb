@@ -11,7 +11,7 @@
       <b>NAME</b>
     </div>
     <div class="fol_index_h_prof">
-      <b>自己紹介</b>
+      <b>introduction</b>
     </div>
   </div>
   <% @user.followers.each do |user| %>
@@ -37,7 +37,7 @@
    
   </div>
   <div class="fol_submit">
-    <%= link_to '戻る', user_path(current_user.id) %>
+    <%= link_to 'back', user_path(current_user.id) %>
   </div>
 
 </div>

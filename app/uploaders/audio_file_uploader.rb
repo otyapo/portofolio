@@ -1,27 +1,38 @@
 class AudioFileUploader < CarrierWave::Uploader::Base
 
-
-
-  version :mp3 do
-    process :convert => [{output_format: :mp3}]
-
-    def full_filename(for_file)
-      "#{super.chomp(File.extname(super))}.mp3"
-    end
+  if Rails.env.development?
+    storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
   end
+
+
+  # version :mp3 do
+  #   process :convert => [{output_format: :mp3}]
+
+    # def full_filename(for_file)
+      # "#{super.chomp(File.extname(super))}.mp3"
+    # end
+  # end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
   include CarrierWave::Audio
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  def filename
+    original_filename if original_filename
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
